@@ -74,4 +74,4 @@ Este proyecto está licenciado bajo la **MIT License** - consulta el archivo [LI
 
 ---
 
-**Desarrollado por Edison Guaichico** - [Tu Perfil de GitHub](https://github.com/EdisonGP)
+**Desarrollado por Edison Guaichico** - [Perfil de GitHub](https://github.com/EdisonGP)
