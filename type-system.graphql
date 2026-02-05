@@ -1,0 +1,89 @@
+#TYPE-SYSTEM
+
+type Query {
+  pacientes(id: Int): [paciente]
+  medicos(id: Int): [medico]
+  especialidades(id: Int): [especialidad]
+  citas_medicas(id: Int): [cita_medica]
+}
+
+scalar LocalDate
+
+type Mutation {
+  # CRUD Paciente
+  insertarPaciente(paciente: pacienteInput): [paciente]
+  actualizarPaciente(id: Int!, paciente: pacienteInput): [paciente]
+  eliminarPaciente(id: Int!): [paciente]
+
+  # CRUD Medico
+  insertarMedico(medico: medicoInput): [medico]
+  actualizarMedico(id: Int!, medico: medicoInput): [medico]
+  eliminarMedico(id: Int!): [medico]
+
+  # CRUD Cita Médica
+  insertarCitaMedica(cita_medica: citaMedicaInput): [cita_medica]
+  actualizarCitaMedica(id: Int!, cita_medica: citaMedicaInput): [cita_medica]
+  eliminarCitaMedica(id: Int!): [cita_medica]
+}
+
+input pacienteInput {
+  pac_identificacion: String
+  pac_nombre: String
+  pac_telefono: String
+  pac_email: String
+  pac_direccion: String
+}
+
+input medicoInput {
+  med_identificacion: String
+  med_nombre: String
+  med_telefono: String
+  med_email: String
+  med_direccion: String
+  esp_nombre: String
+}
+
+input citaMedicaInput {
+  pac_id: Int
+  med_id: Int
+  cit_med_fecha: LocalDate
+}
+
+type paciente {
+  pac_id: Int!
+  pac_identificacion: String
+  pac_nombre: String
+  pac_telefono: String
+  pac_email: String
+  pac_direccion: String
+  pac_estado: Boolean
+  citas_medicas: [cita_medica]
+}
+
+type especialidad {
+  esp_id: Int!
+  esp_nombre: String
+  esp_estado: Boolean
+  medicos: [medico]
+}
+
+type medico {
+  med_id: Int!
+  med_identificacion: String
+  med_nombre: String
+  med_telefono: String
+  med_email: String
+  med_direccion: String
+  med_estado: Boolean
+  especialidades: [especialidad]
+  citas_medicas: [cita_medica]
+}
+
+type cita_medica {
+  cit_med_id: Int!
+  cit_med_fecha: LocalDate
+  cit_med_agendado: Boolean
+  cit_med_estado: Boolean
+  pacientes: [paciente]
+  medicos: [medico]
+}
