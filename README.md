@@ -36,11 +36,15 @@ El proyecto está organizado de la siguiente manera:
 ## Instalación
 
 1. Clona el repositorio o accede a la carpeta del proyecto.
-2. Instala las dependencias:
+   ```bash
+   git clone https://github.com/EdisonGP/GRAPHQL-BACKEND-CITA-MEDICA.git
+   cd tu-repositorio
+   ```
+3. Instala las dependencias:
    ```bash
    npm install
    ```
-3. Configura el archivo `.env` en la raíz del proyecto con tus credenciales de base de datos:
+4. Configura el archivo `.env` en la raíz del proyecto con tus credenciales de base de datos:
    ```env
    DB_HOST=localhost
    DB_PORT=5432
